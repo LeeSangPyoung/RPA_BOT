@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-03-26T17:33:19.380024" rpa="false" schemaversion="5">
+<suite id="s1" name="Download" source="C:\rpa_tools\rpa_scripts\robot\download.robot">
+<kw name="Open Browser To Download Site" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-26T17:33:19.713292" level="INFO">🌐 브라우저 실행 및 다운로드 사이트 접속 중...</msg>
+<arg>🌐 브라우저 실행 및 다운로드 사이트 접속 중...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-26T17:33:19.712607" elapsed="0.000770"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-26T17:33:19.713772" level="INFO">${prefs} = {'download.default_directory': 'C:\\rpa_tools\\rpa_scripts\\robot\\downloads'}</msg>
+<var>${prefs}</var>
+<arg>download.default_directory=${DOWNLOAD_DIR}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-26T17:33:19.713526" elapsed="0.000272"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-26T17:33:19.714094" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000155C5417230&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-26T17:33:19.713889" elapsed="0.000227"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-03-26T17:33:19.714193" elapsed="0.000104"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-03-26T17:33:19.714503" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-03-26T17:33:19.714376" elapsed="3.074685"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-03-26T17:33:22.789381" level="INFO">Opening url 'https://file-examples.com/index.php/sample-documents-download/sample-xls-download/'</msg>
+<arg>${DOWNLOAD_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-03-26T17:33:22.789226" elapsed="27.096692"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-26T17:33:49.886195" elapsed="0.033568"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-26T17:33:49.920279" level="INFO">✅ 다운로드 사이트 접속 완료</msg>
+<arg>✅ 다운로드 사이트 접속 완료</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-26T17:33:49.919955" elapsed="0.000408"/>
+</kw>
+<status status="PASS" start="2025-03-26T17:33:19.712088" elapsed="30.208379"/>
+</kw>
+<test id="s1-t1" name="Download And Upload Excel File" line="14">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-26T17:33:49.921476" level="INFO">🚀 테스트 시작 - 엑셀 다운로드 후 업로드</msg>
+<arg>🚀 테스트 시작 - 엑셀 다운로드 후 업로드</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-26T17:33:49.921356" elapsed="0.000164"/>
+</kw>
+<kw name="Create Download Folder">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-26T17:33:49.922003" level="INFO">📁 다운로드 폴더 초기화 중...</msg>
+<arg>📁 다운로드 폴더 초기화 중...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-26T17:33:49.921922" elapsed="0.000121"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-03-26T17:33:49.923174" level="INFO" html="true">Removed directory '&lt;a href="file://C:\rpa_tools\rpa_scripts\robot\downloads"&gt;C:\rpa_tools\rpa_scripts\robot\downloads&lt;/a&gt;'.</msg>
+<arg>${DOWNLOAD_DIR}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="PASS" start="2025-03-26T17:33:49.922271" elapsed="0.000976"/>
+</kw>
+<arg>Remove Directory</arg>
+<arg>${DOWNLOAD_DIR}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-03-26T17:33:49.922143" elapsed="0.001171"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-03-26T17:33:49.924040" level="INFO" html="true">Created directory '&lt;a href="file://C:\rpa_tools\rpa_scripts\robot\downloads"&gt;C:\rpa_tools\rpa_scripts\robot\downloads&lt;/a&gt;'.</msg>
+<arg>${DOWNLOAD_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-03-26T17:33:49.923416" elapsed="0.000706"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-26T17:33:49.924522" level="INFO">✅ 다운로드 폴더 준비 완료: C:\rpa_tools\rpa_scripts\robot\downloads</msg>
+<arg>✅ 다운로드 폴더 준비 완료: ${DOWNLOAD_DIR}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-26T17:33:49.924316" elapsed="0.000257"/>
+</kw>
+<status status="PASS" start="2025-03-26T17:33:49.921705" elapsed="0.002950"/>
+</kw>
+<kw name="Download Excel File">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-26T17:33:49.925128" level="INFO">⬇️ 엑셀 파일 다운로드 시도 중...</msg>
+<arg>⬇️ 엑셀 파일 다운로드 시도 중...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-26T17:33:49.925028" elapsed="0.000148"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-26T17:33:51.925929" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-26T17:33:49.925266" elapsed="2.000874"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-26T17:33:51.927201" level="INFO">Executing JavaScript:
+document.querySelectorAll('iframe, .google_vignette, #aswift_1_host, .adsbygoogle').forEach(el =&gt; el.remove())
+Without any arguments.</msg>
+<arg>document.querySelectorAll('iframe, .google_vignette, #aswift_1_host, .adsbygoogle').forEach(el =&gt; el.remove())</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-26T17:33:51.926463" elapsed="0.033425"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//tbody/tr[1]/td[5]/a</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-26T17:33:51.960080" elapsed="0.298786"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-26T17:33:52.259596" level="INFO">Clicking element 'xpath=//tbody/tr[1]/td[5]/a'.</msg>
+<arg>xpath=//tbody/tr[1]/td[5]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T17:33:52.259269" elapsed="0.073787"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-26T17:33:52.333313" level="INFO">✅ 다운로드 버튼 클릭 완료</msg>
+<arg>✅ 다운로드 버튼 클릭 완료</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-26T17:33:52.333206" elapsed="0.000140"/>
+</kw>
+<status status="PASS" start="2025-03-26T17:33:49.924818" elapsed="2.408575"/>
+</kw>
+<kw name="Wait For Download To Finish">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-26T17:33:52.333689" level="INFO">⏳ 다운로드 완료 대기 중...</msg>
+<arg>⏳ 다운로드 완료 대기 중...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-26T17:33:52.333631" elapsed="0.000084"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:33:52.334407" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:33:52.334084" elapsed="0.000429">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:33:54.335606" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:33:54.335205" elapsed="0.000478">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:33:56.336880" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:33:56.336207" elapsed="0.000807">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:33:58.339877" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:33:58.338418" elapsed="0.001589">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:00.340842" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:00.340466" elapsed="0.000451">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:02.342139" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:02.341492" elapsed="0.000742">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:04.343118" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:04.342703" elapsed="0.000492">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:06.344781" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:06.344231" elapsed="0.000640">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:08.345812" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:08.345307" elapsed="0.000591">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:10.346766" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:10.346344" elapsed="0.000495">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:12.347859" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:12.347293" elapsed="0.000655">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:14.349691" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:14.349219" elapsed="0.000550">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:16.353537" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:16.351398" elapsed="0.002388">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:18.355911" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:18.354873" elapsed="0.001212">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:20.357297" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:20.356601" elapsed="0.000817">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:22.359221" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:22.358623" elapsed="0.000696">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:24.361155" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:24.360384" elapsed="0.000847">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:26.363481" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:26.362522" elapsed="0.001115">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:28.365205" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:28.364303" elapsed="0.001055">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:30.367128" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:30.366743" elapsed="0.000448">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:32.368130" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:32.367676" elapsed="0.000532">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:34.369163" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:34.368588" elapsed="0.000662">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:36.370757" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:36.370351" elapsed="0.000482">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:38.373174" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:38.371996" elapsed="0.001374">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:40.375938" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:40.374399" elapsed="0.001811">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:42.378584" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:42.377020" elapsed="0.001749">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:44.380565" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:44.380026" elapsed="0.000627">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:46.383327" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:46.381920" elapsed="0.001593">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:48.385972" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:48.384888" elapsed="0.001247">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:50.388710" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:50.387590" elapsed="0.001316">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-26T17:34:52.389858" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-26T17:34:52.389346" elapsed="0.000598">File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<msg time="2025-03-26T17:34:52.390040" level="FAIL">Keyword 'File Should Exist' failed after retrying for 1 minute. The last error was: File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</msg>
+<arg>1 min</arg>
+<arg>2 sec</arg>
+<arg>File Should Exist</arg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="FAIL" start="2025-03-26T17:33:52.333931" elapsed="60.056241">Keyword 'File Should Exist' failed after retrying for 1 minute. The last error was: File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>✅ 다운로드 완료 확인: ${EXCEL_FILE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-03-26T17:34:52.390357" elapsed="0.000026"/>
+</kw>
+<status status="FAIL" start="2025-03-26T17:33:52.333486" elapsed="60.056997">Keyword 'File Should Exist' failed after retrying for 1 minute. The last error was: File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</kw>
+<kw name="Go To Upload Page">
+<status status="NOT RUN" start="2025-03-26T17:34:52.390616" elapsed="0.000022"/>
+</kw>
+<kw name="Upload Excel File">
+<status status="NOT RUN" start="2025-03-26T17:34:52.390706" elapsed="0.000016"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-03-26T17:34:52.390775" elapsed="0.000018"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>🟢 테스트 완료</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-03-26T17:34:52.390850" elapsed="0.000014"/>
+</kw>
+<doc>엑셀 다운로드 후 업로드 테스트</doc>
+<status status="FAIL" start="2025-03-26T17:33:49.920550" elapsed="62.470422">Keyword 'File Should Exist' failed after retrying for 1 minute. The last error was: File 'C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls' does not exist.</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-26T17:34:52.391377" elapsed="2.694016"/>
+</kw>
+<status status="FAIL" start="2025-03-26T17:33:19.383012" elapsed="95.702521"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Download" id="s1" pass="0" fail="1" skip="0">Download</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

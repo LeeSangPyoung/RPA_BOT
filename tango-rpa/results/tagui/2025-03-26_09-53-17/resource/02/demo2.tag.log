@@ -1,0 +1,8 @@
+
+START - automation started - Wed Mar 26 2025 09:53:43 GMT+0900 (?€?œë?êµ??œì???
+https://the-internet.herokuapp.com/login - 
+
+type username as tomsmith
+type password as SuperSecretPassword!
+click //html/body/div[2]/div/div/form/button
+wait 5

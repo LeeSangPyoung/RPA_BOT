@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-03-26T17:18:29.456648" rpa="false" schemaversion="5">
+<suite id="s1" name="Download" source="C:\rpa_tools\rpa_scripts\robot\download.robot">
+<kw name="Open Browser To Download Site" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-26T17:18:29.776704" level="INFO">${prefs} = {'download.default_directory': 'C:\\rpa_tools\\rpa_scripts\\robot\\downloads'}</msg>
+<var>${prefs}</var>
+<arg>download.default_directory=${DOWNLOAD_DIR}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-26T17:18:29.776323" elapsed="0.000414"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-26T17:18:29.777077" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001AB67095D30&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-26T17:18:29.776858" elapsed="0.000245"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-03-26T17:18:29.777186" elapsed="0.000102"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-03-26T17:18:29.777499" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-03-26T17:18:29.777360" elapsed="3.028320"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-03-26T17:18:32.806024" level="INFO">Opening url 'https://file-examples.com/index.php/sample-documents-download/sample-xls-download/'</msg>
+<arg>${DOWNLOAD_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-03-26T17:18:32.805855" elapsed="28.231803"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-26T17:19:01.037815" elapsed="0.039011"/>
+</kw>
+<status status="PASS" start="2025-03-26T17:18:29.775837" elapsed="31.301105"/>
+</kw>
+<test id="s1-t1" name="Download And Upload Excel File" line="13">
+<kw name="Create Download Folder">
+<kw name="Remove Directory">
+<msg time="2025-03-26T17:19:01.080329" level="FAIL">No keyword with name 'Remove Directory' found.</msg>
+<arg>${DOWNLOAD_DIR}</arg>
+<arg>recursive=True</arg>
+<status status="FAIL" start="2025-03-26T17:19:01.080238" elapsed="0.000175">No keyword with name 'Remove Directory' found.</status>
+</kw>
+<kw name="Create Directory">
+<arg>${DOWNLOAD_DIR}</arg>
+<status status="NOT RUN" start="2025-03-26T17:19:01.080575" elapsed="0.000024"/>
+</kw>
+<status status="FAIL" start="2025-03-26T17:19:01.078663" elapsed="0.002033">No keyword with name 'Remove Directory' found.</status>
+</kw>
+<kw name="Download Excel File">
+<status status="NOT RUN" start="2025-03-26T17:19:01.080821" elapsed="0.000020"/>
+</kw>
+<kw name="Go To Upload Page">
+<status status="NOT RUN" start="2025-03-26T17:19:01.080905" elapsed="0.000016"/>
+</kw>
+<kw name="Upload Excel File">
+<status status="NOT RUN" start="2025-03-26T17:19:01.080977" elapsed="0.000015"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-03-26T17:19:01.081063" elapsed="0.000019"/>
+</kw>
+<doc>엑셀 다운로드 후 업로드 테스트</doc>
+<status status="FAIL" start="2025-03-26T17:19:01.077034" elapsed="0.004184">No keyword with name 'Remove Directory' found.</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-26T17:19:01.081635" elapsed="2.802438"/>
+</kw>
+<status status="FAIL" start="2025-03-26T17:18:29.458202" elapsed="34.425979"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Download" id="s1" pass="0" fail="1" skip="0">Download</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

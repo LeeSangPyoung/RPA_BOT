@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-03-26T17:14:59.380676" rpa="false" schemaversion="5">
+<suite id="s1" name="Download" source="C:\rpa_tools\rpa_scripts\robot\download.robot">
+<kw name="Open Browser To Download Site" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-26T17:14:59.649454" level="INFO">Opening browser 'chrome' to base url 'https://file-examples.com/index.php/sample-documents-download/sample-xls-download/'.</msg>
+<arg>${DOWNLOAD_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-26T17:14:59.649273" elapsed="30.729840"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-26T17:15:30.379379" elapsed="0.004621"/>
+</kw>
+<kw name="Set Download Directory">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-26T17:15:30.385136" level="INFO">${prefs} = {'download.default_directory': 'C:\\rpa_tools\\rpa_scripts\\robot\\downloads'}</msg>
+<var>${prefs}</var>
+<arg>download.default_directory=${dir}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-26T17:15:30.384755" elapsed="0.000427"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-26T17:15:30.385605" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001B905A27610&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-26T17:15:30.385314" elapsed="0.000328"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-03-26T17:15:30.385764" elapsed="0.000173"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-03-26T17:15:30.386233" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-03-26T17:15:30.490770" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-03-26T17:15:30.490900" level="FAIL">TypeError: WebDriver.__init__() got an unexpected keyword argument 'chrome_options'</msg>
+<arg>Chrome</arg>
+<arg>chrome_options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="FAIL" start="2025-03-26T17:15:30.386064" elapsed="0.146405">TypeError: WebDriver.__init__() got an unexpected keyword argument 'chrome_options'</status>
+</kw>
+<arg>${DOWNLOAD_DIR}</arg>
+<status status="FAIL" start="2025-03-26T17:15:30.384355" elapsed="0.148275">TypeError: WebDriver.__init__() got an unexpected keyword argument 'chrome_options'</status>
+</kw>
+<status status="FAIL" start="2025-03-26T17:14:59.648845" elapsed="30.883858">TypeError: WebDriver.__init__() got an unexpected keyword argument 'chrome_options'</status>
+</kw>
+<test id="s1-t1" name="Download And Upload Excel File" line="13">
+<doc>엑셀 다운로드 후 업로드 테스트</doc>
+<status status="FAIL" start="2025-03-26T17:15:30.532779" elapsed="0.000952">Parent suite setup failed:
+TypeError: WebDriver.__init__() got an unexpected keyword argument 'chrome_options'</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-26T17:15:30.534129" elapsed="2.744603"/>
+</kw>
+<status status="FAIL" start="2025-03-26T17:14:59.382953" elapsed="33.896056">Suite setup failed:
+TypeError: WebDriver.__init__() got an unexpected keyword argument 'chrome_options'</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Download" id="s1" pass="0" fail="1" skip="0">Download</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

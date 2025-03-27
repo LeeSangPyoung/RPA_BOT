@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-03-26T17:20:02.805362" rpa="false" schemaversion="5">
+<suite id="s1" name="Download" source="C:\rpa_tools\rpa_scripts\robot\download.robot">
+<kw name="Open Browser To Download Site" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-26T17:20:03.140584" level="INFO">${prefs} = {'download.default_directory': 'C:\\rpa_tools\\rpa_scripts\\robot\\downloads'}</msg>
+<var>${prefs}</var>
+<arg>download.default_directory=${DOWNLOAD_DIR}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-26T17:20:03.140334" elapsed="0.000279"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-26T17:20:03.140922" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000189C40F7380&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-26T17:20:03.140721" elapsed="0.000226"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-03-26T17:20:03.141029" elapsed="0.000109"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-03-26T17:20:03.141333" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-03-26T17:20:03.141214" elapsed="3.255431"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-03-26T17:20:06.397082" level="INFO">Opening url 'https://file-examples.com/index.php/sample-documents-download/sample-xls-download/'</msg>
+<arg>${DOWNLOAD_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-03-26T17:20:06.396869" elapsed="27.034552"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-26T17:20:33.431566" elapsed="0.028805"/>
+</kw>
+<status status="PASS" start="2025-03-26T17:20:03.139812" elapsed="30.320678"/>
+</kw>
+<test id="s1-t1" name="Download And Upload Excel File" line="14">
+<kw name="Create Download Folder">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-03-26T17:20:33.461996" level="INFO" html="true">Directory '&lt;a href="file://C:\rpa_tools\rpa_scripts\robot\downloads"&gt;C:\rpa_tools\rpa_scripts\robot\downloads&lt;/a&gt;' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="PASS" start="2025-03-26T17:20:33.461647" elapsed="0.000431"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-03-26T17:20:33.462790" level="INFO" html="true">Created directory '&lt;a href="file://C:\rpa_tools\rpa_scripts\robot\downloads"&gt;C:\rpa_tools\rpa_scripts\robot\downloads&lt;/a&gt;'.</msg>
+<arg>${DOWNLOAD_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-03-26T17:20:33.462216" elapsed="0.000641"/>
+</kw>
+<status status="PASS" start="2025-03-26T17:20:33.461369" elapsed="0.001556"/>
+</kw>
+<kw name="Download Excel File">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-26T17:20:33.463534" level="INFO">Clicking element 'xpath=//tbody/tr[1]/td[5]/a'.</msg>
+<arg>xpath=//tbody/tr[1]/td[5]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T17:20:33.463222" elapsed="0.109407"/>
+</kw>
+<status status="PASS" start="2025-03-26T17:20:33.463046" elapsed="0.109769"/>
+</kw>
+<kw name="Go To Upload Page">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-03-26T17:20:33.573697" level="INFO">Opening url 'https://www.w3schools.com/howto/howto_html_file_upload_button.asp'</msg>
+<arg>${UPLOAD_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-03-26T17:20:33.573465" elapsed="25.451725"/>
+</kw>
+<status status="PASS" start="2025-03-26T17:20:33.573079" elapsed="25.452243"/>
+</kw>
+<kw name="Upload Excel File">
+<kw name="Choose File" owner="SeleniumLibrary">
+<msg time="2025-03-26T17:20:59.026093" level="INFO">Sending C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls to browser.</msg>
+<msg time="2025-03-26T17:20:59.225980" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-03-26T17:20:59.226158" level="FAIL">InvalidArgumentException: Message: invalid argument: File not found : C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls
+  (Session info: chrome=134.0.6998.177)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6D05E4C25+3179557]
+	(No symbol) [0x00007FF6D02488A0]
+	(No symbol) [0x00007FF6D00D91CA]
+	(No symbol) [0x00007FF6D0127623]
+	(No symbol) [0x00007FF6D0157C2A]
+	(No symbol) [0x00007FF6D01222D6]
+	(No symbol) [0x00007FF6D0157E40]
+	(No symbol) [0x00007FF6D01802F3]
+	(No symbol) [0x00007FF6D0157A03]
+	(No symbol) [0x00007FF6D01206D0]
+	(No symbol) [0x00007FF6D0121983]
+	GetHandleVerifier [0x00007FF6D06467CD+3579853]
+	GetHandleVerifier [0x00007FF6D065D1D2+3672530]
+	GetHandleVerifier [0x00007FF6D0652153+3627347]
+	GetHandleVerifier [0x00007FF6D03B092A+868650]
+	(No symbol) [0x00007FF6D0252FFF]
+	(No symbol) [0x00007FF6D024F4A4]
+	(No symbol) [0x00007FF6D024F646]
+	(No symbol) [0x00007FF6D023EAA9]
+	BaseThreadInitThunk [0x00007FFF99FD7374+20]
+	RtlUserThreadStart [0x00007FFF9B31CC91+33]
+</msg>
+<arg>css:input[type="file"]</arg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="FAIL" start="2025-03-26T17:20:59.025784" elapsed="0.281713">InvalidArgumentException: Message: invalid argument: File not found : C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls
+  (Session info: chrome=134.0.6998.177)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6D05E4C25+3179557]
+	(No symbol) [0x00007FF6D02488A0]
+	(No symbol) [0x00007FF6D00D91CA]
+	(No symbol) [0x00007FF6D0127623]
+	(No symbol) [0x00007FF6D0157C2A]
+	(No symbol) [0x00007FF6D01222D6]
+	(No symbol) [0x00007FF6D0157E40]
+	(No symbol) [0x00007FF6D01802F3]
+	(No symbol) [0x00007FF6D0157A03]
+	(No symbol) [0x00007FF6D01206D0]
+	(No symbol) [0x00007FF6D0121983]
+	GetHandleVerifier [0x00007FF6D06467CD+3579853]
+	GetHandleVerifier [0x00007FF6D065D1D2+3672530]
+	GetHandleVerifier [0x00007FF6D0652153+3627347]
+	GetHandleVerifier [0x00007FF6D03B092A+868650]
+	(No symbol) [0x00007FF6D0252FFF]
+	(No symbol) [0x00007FF6D024F4A4]
+	(No symbol) [0x00007FF6D024F646]
+	(No symbol) [0x00007FF6D023EAA9]
+	BaseThreadInitThunk [0x00007FFF99FD7374+20]
+	RtlUserThreadStart [0x00007FFF9B31CC91+33]
+</status>
+</kw>
+<status status="FAIL" start="2025-03-26T17:20:59.025500" elapsed="0.282203">InvalidArgumentException: Message: invalid argument: File not found : C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls
+  (Session info: chrome=134.0.6998.177)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6D05E4C25+3179557]
+	(No symbol) [0x00007FF6D02488A0]
+	(No symbol) [0x00007FF6D00D91CA]
+	(No symbol) [0x00007FF6D0127623]
+	(No symbol) [0x00007FF6D0157C2A]
+	(No symbol) [0x00007FF6D01222D6]
+	(No symbol) [0x00007FF6D0157E40]
+	(No symbol) [0x00007FF6D01802F3]
+	(No symbol) [0x00007FF6D0157A03]
+	(No symbol) [0x00007FF6D01206D0]
+	(No symbol) [0x00007FF6D0121983]
+	GetHandleVerifier [0x00007FF6D06467CD+3579853]
+	GetHandleVerifier [0x00007FF6D065D1D2+3672530]
+	GetHandleVerifier [0x00007FF6D0652153+3627347]
+	GetHandleVerifier [0x00007FF6D03B092A+868650]
+	(No symbol) [0x00007FF6D0252FFF]
+	(No symbol) [0x00007FF6D024F4A4]
+	(No symbol) [0x00007FF6D024F646]
+	(No symbol) [0x00007FF6D023EAA9]
+	BaseThreadInitThunk [0x00007FFF99FD7374+20]
+	RtlUserThreadStart [0x00007FFF9B31CC91+33]
+</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-03-26T17:20:59.307997" elapsed="0.000032"/>
+</kw>
+<doc>엑셀 다운로드 후 업로드 테스트</doc>
+<status status="FAIL" start="2025-03-26T17:20:33.460576" elapsed="25.847587">InvalidArgumentException: Message: invalid argument: File not found : C:\rpa_tools\rpa_scripts\robot\downloads\sample-xls-file-for-testing.xls
+  (Session info: chrome=134.0.6998.177)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6D05E4C25+3179557]
+	(No symbol) [0x00007FF6D02488A0]
+	(No symbol) [0x00007FF6D00D91CA]
+	(No symbol) [0x00007FF6D0127623]
+	(No symbol) [0x00007FF6D0157C2A]
+	(No symbol) [0x00007FF6D01222D6]
+	(No symbol) [0x00007FF6D0157E40]
+	(No symbol) [0x00007FF6D01802F3]
+	(No symbol) [0x00007FF6D0157A03]
+	(No symbol) [0x00007FF6D01206D0]
+	(No symbol) [0x00007FF6D0121983]
+	GetHandleVerifier [0x00007FF6D06467CD+3579853]
+	GetHandleVerifier [0x00007FF6D065D1D2+3672530]
+	GetHandleVerifier [0x00007FF6D0652153+3627347]
+	GetHandleVerifier [0x00007FF6D03B092A+868650]
+	(No symbol) [0x00007FF6D0252FFF]
+	(No symbol) [0x00007FF6D024F4A4]
+	(No symbol) [0x00007FF6D024F646]
+	(No symbol) [0x00007FF6D023EAA9]
+	BaseThreadInitThunk [0x00007FFF99FD7374+20]
+	RtlUserThreadStart [0x00007FFF9B31CC91+33]
+</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-26T17:20:59.308576" elapsed="3.913556"/>
+</kw>
+<status status="FAIL" start="2025-03-26T17:20:02.806853" elapsed="60.415469"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Download" id="s1" pass="0" fail="1" skip="0">Download</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

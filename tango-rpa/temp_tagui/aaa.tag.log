@@ -1,0 +1,7 @@
+
+START - automation started - Wed Mar 26 2025 11:06:23 GMT+0900 (?€?œë?êµ??œì???
+[info] [phantom] Starting...
+[info] [phantom] Running suite: 7 steps
+[debug] [phantom] opening url: about:blank, HTTP GET
+[debug] [phantom] url changed to ""
+[debug] [phantom] Successfully injected Casper client-side utilities

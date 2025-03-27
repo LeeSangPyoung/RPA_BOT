@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-03-27T10:37:31.589976" rpa="false" schemaversion="5">
+<suite id="s1" name="Download" source="C:\rpa_tools\rpa_scripts\robot\download.robot">
+<kw name="Open Browser To Download Site" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:37:31.900917" level="INFO">🌐 브라우저 실행 및 다운로드 사이트 접속 중...</msg>
+<arg>🌐 브라우저 실행 및 다운로드 사이트 접속 중...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:37:31.900792" elapsed="0.000178"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-27T10:37:31.901310" level="INFO">${prefs} = {'download.default_directory': 'C:\\rpa_tools\\rpa_scripts\\robot\\downloads'}</msg>
+<var>${prefs}</var>
+<arg>download.default_directory=${DOWNLOAD_DIR}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-27T10:37:31.901086" elapsed="0.000248"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-27T10:37:31.901611" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000023442017230&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-27T10:37:31.901416" elapsed="0.000218"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-03-27T10:37:31.901716" elapsed="0.000264"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-03-27T10:37:31.902240" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-03-27T10:37:31.902101" elapsed="6.397159"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-03-27T10:37:38.299620" level="INFO">Opening url 'https://file-examples.com/index.php/sample-documents-download/sample-xls-download/'</msg>
+<arg>${DOWNLOAD_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-03-27T10:37:38.299446" elapsed="27.257050"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-27T10:38:05.556690" elapsed="0.070433"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:38:05.627439" level="INFO">✅ 다운로드 사이트 접속 완료</msg>
+<arg>✅ 다운로드 사이트 접속 완료</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:38:05.627300" elapsed="0.000182"/>
+</kw>
+<status status="PASS" start="2025-03-27T10:37:31.900293" elapsed="33.727255"/>
+</kw>
+<test id="s1-t1" name="Download And Upload Excel File" line="14">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:38:05.628764" level="INFO">🚀 테스트 시작 - 엑셀 다운로드 후 업로드</msg>
+<arg>🚀 테스트 시작 - 엑셀 다운로드 후 업로드</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:38:05.628662" elapsed="0.000139"/>
+</kw>
+<kw name="Create Download Folder">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:38:05.629177" level="INFO">📁 다운로드 폴더 초기화 중...</msg>
+<arg>📁 다운로드 폴더 초기화 중...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:38:05.629108" elapsed="0.000099"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-03-27T10:38:05.630148" level="INFO" html="true">Removed directory '&lt;a href="file://C:\rpa_tools\rpa_scripts\robot\downloads"&gt;C:\rpa_tools\rpa_scripts\robot\downloads&lt;/a&gt;'.</msg>
+<arg>${DOWNLOAD_DIR}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="PASS" start="2025-03-27T10:38:05.629375" elapsed="0.000850"/>
+</kw>
+<arg>Remove Directory</arg>
+<arg>${DOWNLOAD_DIR}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-03-27T10:38:05.629283" elapsed="0.001004"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-03-27T10:38:05.630986" level="INFO" html="true">Created directory '&lt;a href="file://C:\rpa_tools\rpa_scripts\robot\downloads"&gt;C:\rpa_tools\rpa_scripts\robot\downloads&lt;/a&gt;'.</msg>
+<arg>${DOWNLOAD_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-03-27T10:38:05.630373" elapsed="0.000694"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:38:05.631356" level="INFO">✅ 다운로드 폴더 준비 완료: C:\rpa_tools\rpa_scripts\robot\downloads</msg>
+<arg>✅ 다운로드 폴더 준비 완료: ${DOWNLOAD_DIR}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:38:05.631206" elapsed="0.000198"/>
+</kw>
+<status status="PASS" start="2025-03-27T10:38:05.628945" elapsed="0.002550"/>
+</kw>
+<kw name="Download Excel File">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:38:05.631969" level="INFO">⬇️ 엑셀 파일 다운로드 시도 중...</msg>
+<arg>⬇️ 엑셀 파일 다운로드 시도 중...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:38:05.631881" elapsed="0.000130"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-27T10:38:07.632407" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-27T10:38:05.632095" elapsed="2.000413"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>css:a.download-button</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-27T10:38:07.632650" elapsed="0.300442"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-27T10:38:07.933426" level="INFO">Clicking element 'css:a.download-button'.</msg>
+<arg>css:a.download-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-27T10:38:07.933261" elapsed="0.108758"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:38:08.042540" level="INFO">🔄 광고 팝업 대기 및 제거...</msg>
+<arg>🔄 광고 팝업 대기 및 제거...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:38:08.042312" elapsed="0.000319"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-27T10:38:11.043895" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-27T10:38:08.042821" elapsed="3.001167"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-27T10:38:11.044435" level="INFO">Executing JavaScript:
+document.querySelectorAll('iframe, .google_vignette, #aswift_1_host, .adsbygoogle').forEach(el =&gt; el.remove())
+Without any arguments.</msg>
+<arg>document.querySelectorAll('iframe, .google_vignette, #aswift_1_host, .adsbygoogle').forEach(el =&gt; el.remove())</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-27T10:38:11.044126" elapsed="0.029419"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-27T10:38:12.074906" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-27T10:38:11.073760" elapsed="1.001670"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-27T10:38:12.076006" level="INFO">Clicking element 'css:a.download-button'.</msg>
+<arg>css:a.download-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-27T10:38:12.075718" elapsed="0.334559"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:38:12.410534" level="INFO">✅ 다운로드 버튼 클릭 완료</msg>
+<arg>✅ 다운로드 버튼 클릭 완료</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:38:12.410426" elapsed="0.000142"/>
+</kw>
+<status status="PASS" start="2025-03-27T10:38:05.631681" elapsed="6.778937"/>
+</kw>
+<kw name="Wait For Download To Finish">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:38:12.410915" level="INFO">⏳ 다운로드 완료 대기 중...</msg>
+<arg>⏳ 다운로드 완료 대기 중...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:38:12.410859" elapsed="0.000081"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-27T10:38:12.411465" level="FAIL">File 'C:\rpa_tools\rpa_scripts\robot\downloads\file_example_XLS_10.xls' does not exist.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="FAIL" start="2025-03-27T10:38:12.411124" elapsed="0.000467">File 'C:\rpa_tools\rpa_scripts\robot\downloads\file_example_XLS_10.xls' does not exist.</status>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-03-27T10:38:14.413031" level="INFO" html="true">File '&lt;a href="file://C:\rpa_tools\rpa_scripts\robot\downloads\file_example_XLS_10.xls"&gt;C:\rpa_tools\rpa_scripts\robot\downloads\file_example_XLS_10.xls&lt;/a&gt;' exists.</msg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-03-27T10:38:14.412538" elapsed="0.000573"/>
+</kw>
+<arg>1 min</arg>
+<arg>2 sec</arg>
+<arg>File Should Exist</arg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-03-27T10:38:12.411002" elapsed="2.002174"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:38:14.413443" level="INFO">✅ 다운로드 완료 확인: file_example_XLS_10.xls</msg>
+<arg>✅ 다운로드 완료 확인: ${EXCEL_FILE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:38:14.413313" elapsed="0.000166"/>
+</kw>
+<status status="PASS" start="2025-03-27T10:38:12.410715" elapsed="2.002817"/>
+</kw>
+<kw name="Go To Upload Page">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:38:14.414286" level="INFO">📤 업로드 페이지 이동 중...</msg>
+<arg>📤 업로드 페이지 이동 중...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:38:14.414199" elapsed="0.000125"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-03-27T10:38:14.414490" level="INFO">Opening url 'https://www.w3schools.com/howto/howto_html_file_upload_button.asp'</msg>
+<arg>${UPLOAD_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-03-27T10:38:14.414404" elapsed="28.511285"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:38:42.925980" level="INFO">✅ 업로드 페이지 접속 완료</msg>
+<arg>✅ 업로드 페이지 접속 완료</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:38:42.925857" elapsed="0.000164"/>
+</kw>
+<status status="PASS" start="2025-03-27T10:38:14.413641" elapsed="28.512440"/>
+</kw>
+<kw name="Upload Excel File">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:38:42.926460" level="INFO">📁 파일 업로드 시도 중...</msg>
+<arg>📁 파일 업로드 시도 중...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:38:42.926382" elapsed="0.000115"/>
+</kw>
+<kw name="Choose File" owner="SeleniumLibrary">
+<msg time="2025-03-27T10:38:42.926766" level="INFO">Sending C:\rpa_tools\rpa_scripts\robot\downloads\file_example_XLS_10.xls to browser.</msg>
+<arg>css:input[type="file"]</arg>
+<arg>${DOWNLOAD_DIR}${/}${EXCEL_FILE}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="PASS" start="2025-03-27T10:38:42.926582" elapsed="0.032575"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:38:42.959449" level="INFO">✅ 업로드 시도 완료</msg>
+<arg>✅ 업로드 시도 완료</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:38:42.959322" elapsed="0.000165"/>
+</kw>
+<status status="PASS" start="2025-03-27T10:38:42.926193" elapsed="0.033350"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-27T10:38:45.960732" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-27T10:38:42.959613" elapsed="3.001217"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-27T10:38:45.961056" level="INFO">🟢 테스트 완료</msg>
+<arg>🟢 테스트 완료</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-27T10:38:45.960957" elapsed="0.000128"/>
+</kw>
+<doc>다운로드 버튼 이후 광고 제거 후 엑셀 파일 다운로드 및 업로드 테스트</doc>
+<status status="PASS" start="2025-03-27T10:38:05.627615" elapsed="40.333561"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-27T10:38:45.961564" elapsed="3.894270"/>
+</kw>
+<status status="PASS" start="2025-03-27T10:37:31.591556" elapsed="78.264373"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Download" id="s1" pass="1" fail="0" skip="0">Download</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

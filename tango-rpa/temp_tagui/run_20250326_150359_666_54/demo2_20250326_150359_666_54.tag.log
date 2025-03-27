@@ -1,0 +1,31 @@
+
+START - automation started - Wed Mar 26 2025 15:04:23 GMT+0900 (?€?œë?êµ??œì???
+[info] [phantom] Starting...
+[info] [phantom] Running suite: 9 steps
+[debug] [phantom] opening url: about:blank, HTTP GET
+[debug] [phantom] url changed to ""
+[debug] [phantom] Successfully injected Casper client-side utilities
+https://the-internet.herokuapp.com/login - The Internet
+
+[info] [phantom] Step anonymous 2/9: done in 14603ms.
+type username as tomsmith
+[info] [phantom] Step anonymous 3/9: done in 14604ms.
+[info] [phantom] Step _step 4/10: done in 14626ms.
+[info] [phantom] waitFor() finished in 229ms.
+[info] [phantom] Step then 5/11: done in 16018ms.
+type password as SuperSecretPassword!
+[info] [phantom] Step anonymous 6/11: done in 16018ms.
+[info] [phantom] Step _step 7/12: done in 16039ms.
+[info] [phantom] waitFor() finished in 332ms.
+[info] [phantom] Step then 8/13: done in 18905ms.
+click //html/body/div[2]/div/div/form/button
+[info] [phantom] Step anonymous 9/13: done in 18906ms.
+[info] [phantom] Step _step 10/14: done in 18926ms.
+[info] [phantom] waitFor() finished in 127ms.
+[info] [phantom] Step then 11/15: done in 19704ms.
+wait 5
+[info] [phantom] Step anonymous 12/15: done in 19706ms.
+[info] [phantom] Step anonymous 13/15: done in 19726ms.
+[info] [phantom] Step _step 14/16: done in 19746ms.
+[info] [phantom] wait() finished waiting for 5000ms.
+[info] [phantom] Step anonymous 15/16: done in 24760ms.

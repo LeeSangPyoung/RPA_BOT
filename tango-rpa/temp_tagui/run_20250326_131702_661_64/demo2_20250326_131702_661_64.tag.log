@@ -1,0 +1,14 @@
+
+START - automation started - Wed Mar 26 2025 13:17:19 GMT+0900 (?€?œë?êµ??œì???
+[info] [phantom] Starting...
+[info] [phantom] Running suite: 9 steps
+[debug] [phantom] opening url: about:blank, HTTP GET
+[debug] [phantom] url changed to ""
+[debug] [phantom] Successfully injected Casper client-side utilities
+https://the-internet.herokuapp.com/login - The Internet
+
+[info] [phantom] Step anonymous 2/9: done in 3590ms.
+type username as tomsmith
+[info] [phantom] Step anonymous 3/9: done in 3592ms.
+[info] [phantom] Step _step 4/10: done in 3612ms.
+[info] [phantom] waitFor() finished in 245ms.
