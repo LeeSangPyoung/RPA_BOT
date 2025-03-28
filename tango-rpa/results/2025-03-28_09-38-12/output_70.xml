@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-03-28T09:38:14.981988" rpa="false" schemaversion="5">
+<suite id="s1" name="Demo" source="C:\rpa_tools\rpa_scripts\robot\demo.robot">
+<test id="s1-t1" name="Demo Login Test" line="12">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-28T09:38:15.996263" level="WARN">exexcutable_path is being deprecated. Please use service to configure the driver's executable_path as per documentation.</msg>
+<msg time="2025-03-28T09:38:15.996553" level="INFO">Opening browser 'Chrome' to base url 'https://the-internet.herokuapp.com/login'.</msg>
+<msg time="2025-03-28T09:42:34.381986" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPConnectionPool(host='localhost', port=62257): Read timed out. (read timeout=120)")': /session/57930cb033e943bde8646c7c76f29bf4/screenshot</msg>
+<msg time="2025-03-28T09:44:25.361379" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)': /session/57930cb033e943bde8646c7c76f29bf4/screenshot</msg>
+<msg time="2025-03-28T09:44:29.465466" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001FFFE6CAFD0&gt;: Failed to establish a new connection: [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다')': /session/57930cb033e943bde8646c7c76f29bf4/screenshot</msg>
+<msg time="2025-03-28T09:44:33.555519" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=62257): Max retries exceeded with url: /session/57930cb033e943bde8646c7c76f29bf4/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001FFFE6CB360&gt;: Failed to establish a new connection: [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다'))</msg>
+<msg time="2025-03-28T09:44:33.555857" level="FAIL">ReadTimeoutError: HTTPConnectionPool(host='localhost', port=62257): Read timed out. (read timeout=120)</msg>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<arg>executable_path=${CHROMEDRIVER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="FAIL" start="2025-03-28T09:38:15.995187" elapsed="377.748706">ReadTimeoutError: HTTPConnectionPool(host='localhost', port=62257): Read timed out. (read timeout=120)</status>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2025-03-28T09:44:33.744171" elapsed="0.000046"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id:username</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-03-28T09:44:33.744327" elapsed="0.000030"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-03-28T09:44:33.744465" elapsed="0.000029"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>css:button.radius</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-03-28T09:44:33.744593" elapsed="0.000028"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-03-28T09:44:33.744717" elapsed="0.000028"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-03-28T09:44:33.744840" elapsed="0.000026"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<arg>/secure</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="NOT RUN" start="2025-03-28T09:44:33.744950" elapsed="0.000025"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-03-28T09:44:33.745063" elapsed="0.000025"/>
+</kw>
+<status status="FAIL" start="2025-03-28T09:38:15.993283" elapsed="377.751971">ReadTimeoutError: HTTPConnectionPool(host='localhost', port=62257): Read timed out. (read timeout=120)</status>
+</test>
+<doc>Demo 로그인 테스트 (HerokuApp)</doc>
+<status status="FAIL" start="2025-03-28T09:38:14.986336" elapsed="378.759347"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Demo" id="s1" pass="0" fail="1" skip="0">Demo</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-03-28T09:38:15.996263" level="WARN">exexcutable_path is being deprecated. Please use service to configure the driver's executable_path as per documentation.</msg>
+<msg time="2025-03-28T09:42:34.381986" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPConnectionPool(host='localhost', port=62257): Read timed out. (read timeout=120)")': /session/57930cb033e943bde8646c7c76f29bf4/screenshot</msg>
+<msg time="2025-03-28T09:44:25.361379" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)': /session/57930cb033e943bde8646c7c76f29bf4/screenshot</msg>
+<msg time="2025-03-28T09:44:29.465466" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001FFFE6CAFD0&gt;: Failed to establish a new connection: [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다')': /session/57930cb033e943bde8646c7c76f29bf4/screenshot</msg>
+<msg time="2025-03-28T09:44:33.555519" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=62257): Max retries exceeded with url: /session/57930cb033e943bde8646c7c76f29bf4/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001FFFE6CB360&gt;: Failed to establish a new connection: [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다'))</msg>
+</errors>
+</robot>

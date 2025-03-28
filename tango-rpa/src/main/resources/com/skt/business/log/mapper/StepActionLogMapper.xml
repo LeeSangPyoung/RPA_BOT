@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skt.business.log.mapper.StepActionLogMapper">
+
+    <!-- Insert 문 -->
+    <insert id="insertStepActionLog" parameterType="com.skt.business.log.entity.StepActionLog" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO rpa_step_action_log (
+            step_action_id,
+            action_log_id,
+            result_status,
+            start_time,
+            end_time,
+            log_message,
+            frst_reg_user_id,
+            frst_reg_date,
+            chg_reg_user_id,
+            chg_reg_date
+        ) VALUES (
+            #{stepActionId},
+            #{actionLogId},
+            #{resultStatus},
+            #{startTime},
+            #{endTime},
+            #{logMessage},
+            #{frstRegUserId},
+            now(),
+            #{chgRegUserId},
+            now()
+        )
+    </insert>
+
+    <!-- Update 문 -->
+    <update id="updateStepActionLog" parameterType="com.skt.business.log.entity.StepActionLog">
+        UPDATE rpa_step_action_log
+        SET
+            result_status = #{resultStatus},
+            end_time = #{endTime},
+            log_message = #{logMessage},
+            chg_reg_user_id = #{chgRegUserId},
+            chg_reg_date = now()
+        WHERE step_action_id = #{stepActionId}
+    </update>
+
+</mapper>

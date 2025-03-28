@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skt.scheduler.mapper.RpaSchedulerMapper">
+
+    <select id="getActiveSchedules" resultType="com.skt.scheduler.model.entity.RpaScheduler">
+        SELECT * FROM public.rpa_scheduler WHERE status = 'ACTIVE'
+    </select>
+
+    <update id="updateNextRunTime">
+        UPDATE public.rpa_scheduler
+        SET next_run_time = #{nextRunTime}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

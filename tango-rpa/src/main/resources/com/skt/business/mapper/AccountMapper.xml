@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.skt.business.mapper.AccountMapper">
+
+    <select id="selectAccountsByGroupId"
+            parameterType="long"
+            resultType="com.skt.business.model.entity.Account">
+        SELECT
+            account_group_id,
+            account_no,
+            key,
+            value
+        FROM
+            rpa_account
+        WHERE
+            account_group_id = #{accountGroupId}
+        ORDER BY
+            account_no ASC, key ASC
+    </select>
+
+</mapper>

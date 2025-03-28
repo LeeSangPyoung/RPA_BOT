@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.skt.core.log.mapper.RpaExecutionLogMapper">
+
+    <insert id="insert" parameterType="com.skt.core.log.entity.RpaExecutionLog" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO rpa_execution_log (
+            step_action_id,
+            script_path,
+            result_status,
+            message,
+            frst_reg_user_id,
+            frst_reg_date,
+            chg_reg_user_id,
+            chg_reg_date
+        ) VALUES (
+            #{stepActionId},
+            #{scriptPath},
+            #{resultStatus},
+            #{message},
+            #{frstRegUserId},
+            now(),
+            #{chgRegUserId},
+            now()
+        )
+    </insert>
+
+    <update id="update" parameterType="com.skt.core.log.entity.RpaExecutionLog">
+        UPDATE rpa_execution_log
+        SET
+            result_status = #{resultStatus},
+            message = #{message},
+            chg_reg_user_id = #{chgRegUserId},
+            chg_reg_date = now()
+        WHERE id = #{id}
+    </update>
+
+</mapper>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-03-28T13:23:48.263094" rpa="false" schemaversion="5">
+<suite id="s1" name="Demo" source="D:\workspace_rpa3\tango-rpa\temp\20250328_132347\account_2\demo.robot">
+<test id="s1-t1" name="Demo Login Test" line="12">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-28T13:23:48.661536" level="WARN">exexcutable_path is being deprecated. Please use service to configure the driver's executable_path as per documentation.</msg>
+<msg time="2025-03-28T13:23:48.661648" level="INFO">Opening browser 'Chrome' to base url 'https://the-internet.herokuapp.com/login'.</msg>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<arg>executable_path=${CHROMEDRIVER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-28T13:23:48.661218" elapsed="26.307003"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-28T13:24:14.968754" elapsed="0.105073"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-28T13:24:15.074917" level="INFO">Typing text 'tomsmith' into text field 'id:username'.</msg>
+<arg>id:username</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T13:24:15.074172" elapsed="0.194732"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-28T13:24:15.269881" level="INFO">Typing text 'SuperSecretPassword!' into text field 'id:password'.</msg>
+<arg>id:password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T13:24:15.269320" elapsed="0.313261"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-28T13:24:15.583052" level="INFO">Clicking button 'css:button.radius'.</msg>
+<arg>css:button.radius</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T13:24:15.582802" elapsed="0.703733"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-28T13:24:19.287364" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-28T13:24:16.286726" elapsed="3.000736"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-28T13:24:19.378304" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-28T13:24:19.287605" elapsed="0.090790"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2025-03-28T13:24:19.385037" level="INFO">Current location contains '/secure'.</msg>
+<arg>/secure</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-03-28T13:24:19.378516" elapsed="0.006597"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-28T13:24:19.385231" elapsed="2.861049"/>
+</kw>
+<status status="PASS" start="2025-03-28T13:23:48.660387" elapsed="33.586077"/>
+</test>
+<doc>Demo 로그인 테스트 (HerokuApp)</doc>
+<status status="PASS" start="2025-03-28T13:23:48.265404" elapsed="33.981459"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Demo" id="s1" pass="1" fail="0" skip="0">Demo</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-03-28T13:23:48.661536" level="WARN">exexcutable_path is being deprecated. Please use service to configure the driver's executable_path as per documentation.</msg>
+</errors>
+</robot>

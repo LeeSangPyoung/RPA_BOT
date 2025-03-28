@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.skt.business.mapper.StepActionMapper">
+
+	<select id="selectStepsByActionId" resultType="com.skt.business.model.entity.StepAction">
+		SELECT 
+		    id AS stepId,
+		    rpa_action_id AS actionId,
+		    step_order AS stepOrder,
+		    rpa_type AS rpaType,
+		    script_path AS scriptPath,
+		    script_file AS scriptFile,
+		    target_file_path AS targetFilePath,
+		    repeat_per_account AS repeatPerAccount,
+		    account_group_id AS accountGroupId,
+		    parallel_execution AS parallelExecution, -- 🔥 이게 누락되어 있었음!
+		    frst_reg_user_id AS frstRegUserId,
+		    frst_reg_date AS frstRegDate,
+		    chg_reg_user_id AS chgRegUserId,
+		    chg_reg_date AS chgRegDate
+		FROM rpa_step_action
+		WHERE rpa_action_id = #{actionId}
+		ORDER BY step_order ASC
+
+	</select>
+</mapper>
